@@ -4,9 +4,11 @@ import { NEW_PRODUCTS_INTRO, WELCOME_MESSAGE } from "../constants";
 
 const Intropage = () => {
   return (
-    <div className="h-screen flex flex-col bg-cover bg-center bg-no-repeat h-screen" style={{ backgroundImage: `url(${Background})` }}>
-        <Navbar />
-        <div className="flex-grow flex justify-center items-center">
+    <div className="h-screen flex flex-col bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${Background})` }}>
+        <div className="fixed top-0 left-0 w-full z-50">
+            <Navbar />
+        </div>
+        <div className="flex-grow flex justify-center items-center mt-20">
             <div className="flex flex-col text-center items-center py-20 px-20 w-3/5 bg-black rounded-3xl bg-opacity-75 text-white">
                 <h1 className="text-7xl font-bold">Stevo Tech</h1>
                 <p className="my-2 max-w-xl py-6 font-light tracking-tighter">
@@ -30,5 +32,3 @@ const Intropage = () => {
 };
 
 export default Intropage;
-
-// text-center items-center h-screen

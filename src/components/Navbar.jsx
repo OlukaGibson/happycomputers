@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-black bg-opacity-80">
+      <nav className="bg-black bg-opacity-90">
         <div className="container mb-20 flex items-center justify-between py-6 mx-auto px-10">
           <img src={logo} alt="logo" className="h-10" />
           <div className="hidden md:flex">
