@@ -1,5 +1,4 @@
 import Navbar from "./Navbar";
-import Background from "../assets/background.png";
 import { NEW_PRODUCTS_INTRO, WELCOME_MESSAGE } from "../constants";
 
 const Intropage = () => {

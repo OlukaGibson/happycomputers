@@ -1,6 +1,5 @@
 import React from 'react'
 import Footer from './Footer'
-import Background from "../assets/lastpagebackground.png"
 
 const Contact = () => {
   return (

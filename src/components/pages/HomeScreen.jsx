@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Intropage from "../Intropage";
 import Contact from "../Contact";
 import BrandDisplay from "../BrandDisplay";
-import Background from "/Users/AirQo/Documents/happycomputerskla/happycomputers/src/assets/background.png";
+import Background from "./background.png";
 
 const HomeScreen = () => {
   const [scrollPosition, setScrollPosition] = useState(0);

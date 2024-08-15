@@ -1,6 +1,5 @@
 import React from "react";
 import Masonry from "react-masonry-css";
-import Background from "../assets/background.png";
 import "./style.css";
 import { CATEGORIES } from "../constants";
 
