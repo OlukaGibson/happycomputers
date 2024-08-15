@@ -3,6 +3,7 @@ import logo from "../assets/gperfect.png";
 import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,22 +21,22 @@ const Navbar = () => {
             <ul className="flex space-x-10">
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  HOME
+                  <Link to="/">HOME</Link>
                 </a>
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Laptops
+                  <Link to="/computers">Computers</Link>
                 </a>
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Services
+                  <Link to="/services">Services</Link>
                 </a>
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Accessories
+                  <Link to="/accessories">Accessories</Link>
                 </a>
               </li>
               <li className="text-gray-100">
@@ -45,7 +46,7 @@ const Navbar = () => {
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Explore
+                  <Link to="/explore">Explore</Link>
                 </a>
               </li>
               {/* <li className="text-gray-100"> */}
@@ -71,7 +72,7 @@ const Navbar = () => {
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Laptops
+                Computers
                 </a>
               </li>
               <li className="text-gray-100">

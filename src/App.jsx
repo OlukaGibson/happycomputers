@@ -1,17 +1,22 @@
-import React from "react";
-import Intropage from "./components/Intropage";
-import Contact from "./components/Contact";
-import BrandDisplay from "./components/BrandDisplay";
-import BrandDisplay1 from "./components/BrandDisplay1";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomeScreen from './components/pages/HomeScreen';
+import Computers from './components/pages/Computers';
+import Services from './components/pages/Services';
+import Accessories from './components/pages/Accessories';
+import Explore from './components/pages/Explore';
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden text-nuetral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
-      <Intropage />
-      <BrandDisplay />
-      <BrandDisplay1 />
-      <Contact />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/computers" element={<Computers />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/explore" element={<Explore />} />
+      </Routes>
+    </Router>
   );
 };
 

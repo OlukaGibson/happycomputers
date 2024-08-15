@@ -4,7 +4,7 @@ import { NEW_PRODUCTS_INTRO, WELCOME_MESSAGE } from "../constants";
 
 const Intropage = () => {
   return (
-    <div className="h-screen flex flex-col bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${Background})` }}>
+    <div className="h-screen flex flex-col bg-cover">
         <div className="fixed top-0 left-0 w-full z-50">
             <Navbar />
         </div>

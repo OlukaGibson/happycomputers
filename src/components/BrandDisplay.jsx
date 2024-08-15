@@ -13,11 +13,10 @@ const Contact = () => {
 
   return (
     <div
-      className="absolute inset-0 bg-black bg-opacity-50 relative bg-cover bg-center bg-no-repeat h-screen"
-      style={{ backgroundImage: `url(${Background})` }}
+      className="absolute inset-0 relative bg-cover bg-center bg-no-repeat"
     >
       <div className="container mb-20 flex items-center justify-between py-6 mx-auto px-10">
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0"></div>
         <div className="relative z-10 container mb-20 mx-auto py-6 px-10">
           <Masonry
             breakpointCols={breakpointColumnsObj}
