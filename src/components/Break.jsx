@@ -10,7 +10,7 @@ const Break = () => {
           <br />
         </p>
         <p>
-          <hr />
+          
         </p>
     </div>
   )

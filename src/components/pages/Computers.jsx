@@ -19,7 +19,7 @@ const Computers = () => {
   }, []);
   
   const maxOpacity = 0.75;
-  const minOpacity = 0.35; // Set a minimum brightness level
+  const minOpacity = 0.55; // Set a minimum brightness level
   const gradientOpacity = Math.max(minOpacity, Math.min(scrollPosition, maxOpacity));
 
   const backgroundOverlayStyle = {
