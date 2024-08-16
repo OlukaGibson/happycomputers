@@ -67,12 +67,12 @@ const Navbar = () => {
             <ul className="space-y-4">
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  HOME
+                  <Link to="/">HOME</Link>
                 </a>
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                Computers
+                  <Link to="/computers">Computers</Link>
                 </a>
               </li>
               <li className="text-gray-100">
@@ -90,12 +90,15 @@ const Navbar = () => {
                   Contact
                 </a>
               </li>
-              {/* <li className="text-gray-100"> */}
+              <li className="text-gray-100">
               <a href="" className="p-1 text-gray-100">
+                  <Link to="/explore">Explore</Link>
+                </a>
+              </li>
+            </ul>
+            <a href="" className="p-1 text-gray-100">
                 <BiSearch />
               </a>
-              {/* </li> */}
-            </ul>
           </div>
         )}
       </nav>

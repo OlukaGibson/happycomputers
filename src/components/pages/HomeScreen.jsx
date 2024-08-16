@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Intropage from "../Intropage";
-import Contact from "../Contact";
+import Footer from "../Footer";
 import BrandDisplay from "../BrandDisplay";
 import Background from "./background.png";
+import Navbar from "../Navbar";
 
 const HomeScreen = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -17,23 +18,33 @@ const HomeScreen = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Set a maximum opacity threshold (e.g., 0.7) so it doesn't get too dark
-  const maxOpacity = 0.8;
-  const gradientOpacity = Math.min(scrollPosition, maxOpacity);
+  
+  const maxOpacity = 0.75;
+  const minOpacity = 0.35; // Set a minimum brightness level
+  const gradientOpacity = Math.max(minOpacity, Math.min(scrollPosition, maxOpacity));
 
   const backgroundOverlayStyle = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, ${gradientOpacity}), rgba(0, 0, 0, ${gradientOpacity})), url(${Background})`,
+    backgroundSize: 'cover',  // Ensures that the image covers the screen regardless of size
+    backgroundPosition: 'center', // Centers the background image
+    backgroundAttachment: 'fixed', // Keeps the background fixed during scroll
     zIndex: -1,
   };
 
   return (
     <div className="relative min-h-screen text-neutral-900 antialiased selection:bg-cyan-300 selection:text-cyan-900">
-      <div className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed" style={backgroundOverlayStyle}></div>
+      {/* Background overlay that is responsive */}
+      <div className="fixed inset-0" style={backgroundOverlayStyle}></div>
+      
+      {/* Content */}
       <div className="relative z-10">
+        
+      <div className="fixed top-0 left-0 w-full z-50">
+        <Navbar />
+      </div>
         <Intropage />
         <BrandDisplay />
-        <Contact />
+        <Footer />
       </div>
     </div>
   );

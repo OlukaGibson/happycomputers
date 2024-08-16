@@ -46,7 +46,7 @@ export const DESCRIPTION = [
     "Precision meets power. Sleek designs, lightning-fast performance. Elevate your productivity. Experience the future of computing.", //Acer description
 ];
 
-export const ComputerDetails = [
+export const COMPUTERDETAILS = [
     {
         id : 1,
         brand : BRANDS[0],
