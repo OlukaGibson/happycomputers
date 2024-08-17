@@ -1,54 +1,69 @@
 import React, { useState } from "react";
-import { BRANDS, SERIES, USAGE, TYPE, CONDITION, RAM, PROCESSOR, STORAGE, SCREEN_SIZE, STORAGE_TYPE, OPERATING_SYSTEM, GRAPHICS_CARD_AVAILABLE, GRAPHICS_CARD, GRAPHICS_CARD_SIZE, GENERATION } from "../constants"; 
+import { BRANDS, USAGE, TYPE, CONDITION, RAM, PROCESSOR, STORAGE, SCREEN_SIZE, STORAGE_TYPE, OPERATING_SYSTEM, GRAPHICS_CARD, GRAPHICS_CARD_SIZE, GENERATION } from "../constants";
 
 const Sidebar = () => {
-  const [openSections, setOpenSections] = useState({});
+  const [openSection, setOpenSection] = useState(null);
 
-  const toggleSection = (section) => {
-    setOpenSections((prevState) => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
+  const handleMouseEnter = (section) => {
+    setOpenSection(section);
+  };
+
+  const handleMouseLeave = () => {
+    setOpenSection(null);
   };
 
   const renderSection = (title, items) => (
-    <div className="mb-4">
+    <div
+      className="mb-2 lg:mb-4 group"
+      onMouseEnter={() => handleMouseEnter(title)}
+      onMouseLeave={handleMouseLeave}
+    >
       <div
-        className="cursor-pointer flex justify-between items-center font-bold text-lg py-2 px-4 bg-gray-400 bg-opacity-10 text-white rounded-lg hover:bg-opacity-10 transition-all"
-        onClick={() => toggleSection(title)}
+        className="cursor-pointer flex justify-between items-center font-bold py-1 px-2 bg-gray-700 bg-opacity-70 text-white rounded-lg hover:bg-opacity-90 transition-all"
       >
         <span>{title}</span>
-        <span>{openSections[title] ? "▲" : "▼"}</span> {/* Arrow icon */}
+        <span>{"▼"}</span> {/* Arrow icon or indicator */}
       </div>
-      {openSections[title] && (
-        <ul className="pl-4 mt-2 list-disc text-gray-300">
+      <div className={`transition-max-height duration-300 ease-in-out overflow-hidden ${openSection === title ? 'max-h-96' : 'max-h-0'}`}>
+        <ul className="mt-1 bg-gray-800 bg-opacity-0 rounded-lg text-gray-300">
           {items.map((item, index) => (
-            <li key={index} className="text-gray-300 py-1 px-2">
+            <li key={index} className="py-1 px-2 hover:bg-gray-600">
               {item}
             </li>
           ))}
         </ul>
-      )}
+      </div>
     </div>
   );
 
   return (
-    <div className="w-64 bg-gray-900 bg-opacity-70 p-6 shadow-lg rounded-lg backdrop-filter backdrop-blur-sm">
-      {renderSection("Brand", BRANDS)}
-      {renderSection("Series", SERIES)}
-      {renderSection("Usage", USAGE)}
-      {renderSection("Type", TYPE)}
-      {renderSection("Condition", CONDITION)}
-      {renderSection("RAM", RAM)}
-      {renderSection("Processor", PROCESSOR)}
-      {renderSection("Storage (GB)", STORAGE.map(size => `${size} GB`))}
-      {renderSection("Screen Size", SCREEN_SIZE.map(size => `${size} inches`))}
-      {renderSection("Storage Type", STORAGE_TYPE)}
-      {renderSection("Operating System", OPERATING_SYSTEM)}
-      {renderSection("Graphics Card Available", GRAPHICS_CARD_AVAILABLE)}
-      {renderSection("Graphics Card", GRAPHICS_CARD)}
-      {renderSection("Graphics Card Size (GB)", GRAPHICS_CARD_SIZE.map(size => `${size} GB`))}
-      {renderSection("Generation", GENERATION)}
+    <div className="bg-gray-900 bg-opacity-0 p-2 shadow-lg rounded-lg backdrop-filter backdrop-blur-sm lg:w-64 flex lg:block">
+      {/* Title for the sidebar */}
+      <div className="text-white font-bold text-xl mb-4">
+        Categories
+      </div>
+      {/* Render sections */}
+      <div className="flex flex-nowrap lg:flex-col lg:space-y-2 overflow-x-auto lg:overflow-visible px-4 py-2">
+        {[
+          { title: "Device Brand", items: BRANDS },
+          { title: "Device Usage", items: USAGE },
+          { title: "Device Type", items: TYPE },
+          { title: "Device Condition ", items: CONDITION },
+          { title: "RAM Size", items: RAM },
+          { title: "CPU Processor ", items: PROCESSOR },
+          { title: "Storage Capacity", items: STORAGE.map(size => `${size} GB`) },
+          { title: "Display size", items: SCREEN_SIZE.map(size => `${size} inches`) },
+          { title: "Storage Type", items: STORAGE_TYPE },
+          { title: "Operating System", items: OPERATING_SYSTEM },
+          { title: "Graphics Card", items: GRAPHICS_CARD },
+          { title: "Graphics Card Size", items: GRAPHICS_CARD_SIZE.map(size => `${size} GB`) },
+          { title: "Device Generation", items: GENERATION }
+        ].map(({ title, items }) => (
+          <div key={title}>
+            {renderSection(title, items)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

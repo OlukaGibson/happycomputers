@@ -18,7 +18,7 @@ const Computers = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
-  const maxOpacity = 0.75;
+  const maxOpacity = 0.85;
   const minOpacity = 0.55; // Set a minimum brightness level
   const gradientOpacity = Math.max(minOpacity, Math.min(scrollPosition, maxOpacity));
 
