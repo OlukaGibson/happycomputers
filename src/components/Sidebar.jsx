@@ -19,10 +19,10 @@ const Sidebar = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className="cursor-pointer flex justify-between items-center font-bold py-1 px-2 bg-gray-700 bg-opacity-70 text-white rounded-lg hover:bg-opacity-90 transition-all"
+        className="cursor-pointer flex justify-between items-center font-bold py-1 px-2 bg-gray-700 bg-opacity-0 text-white rounded-lg hover:bg-opacity-90 transition-all"
       >
         <span>{title}</span>
-        <span>{"▼"}</span> {/* Arrow icon or indicator */}
+        <span className="mt-2 text-xs sm:text-sm hidden sm:block">{"▼"}</span>
       </div>
       <div className={`transition-max-height duration-300 ease-in-out overflow-hidden ${openSection === title ? 'max-h-96' : 'max-h-0'}`}>
         <ul className="mt-1 bg-gray-800 bg-opacity-0 rounded-lg text-gray-300">
@@ -40,7 +40,7 @@ const Sidebar = () => {
     <div className="bg-gray-900 bg-opacity-0 p-2 shadow-lg rounded-lg backdrop-filter backdrop-blur-sm lg:w-64 flex lg:block">
       {/* Title for the sidebar */}
       <div className="text-white font-bold text-xl mb-4">
-        Categories
+      <p className="mt-2 hidden sm:block">Categories</p>
       </div>
       {/* Render sections */}
       <div className="flex flex-nowrap lg:flex-col lg:space-y-2 overflow-x-auto lg:overflow-visible px-4 py-2">
