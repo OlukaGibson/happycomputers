@@ -132,7 +132,9 @@ const Computersdisplay = () => {
                       </div>
                     ))
                   ) : (
-                    <p>No computers found matching the selected filters.</p>
+                    <div className="text-white font-bold text-xl mb-4">
+                      <p>No computers found matching the selected filters.</p>
+                    </div>
                   )}
                 </Masonry>
               </div>
