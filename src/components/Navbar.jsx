@@ -31,12 +31,14 @@ const Navbar = () => {
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  <Link to="/services">Services</Link>
+                  {/* <Link to="/services">Services</Link> */}
+                  <Link to="/">Services</Link>
                 </a>
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  <Link to="/accessories">Accessories</Link>
+                  {/* <Link to="/accessories">Accessories</Link> */}
+                  <Link to="/">Accessories</Link>
                 </a>
               </li>
               <li className="text-gray-100">
@@ -46,7 +48,8 @@ const Navbar = () => {
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  <Link to="/explore">Explore</Link>
+                  {/* <Link to="/explore">Explore</Link> */}
+                  <Link to="/">Explore</Link>
                 </a>
               </li>
               {/* <li className="text-gray-100"> */}
@@ -77,12 +80,14 @@ const Navbar = () => {
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Services
+                  {/* <Link to="/services">Services</Link> */}
+                  <Link to="/">Services</Link>
                 </a>
               </li>
               <li className="text-gray-100">
                 <a href="" className="p-1 text-gray-100">
-                  Accessories
+                  {/* <Link to="/accessories">Accessories</Link> */}
+                  <Link to="/">Accessories</Link>
                 </a>
               </li>
               <li className="text-gray-100">
@@ -92,7 +97,8 @@ const Navbar = () => {
               </li>
               <li className="text-gray-100">
               <a href="" className="p-1 text-gray-100">
-                  <Link to="/explore">Explore</Link>
+                  {/* <Link to="/explore">Explore</Link> */}
+                  <Link to="/">Explore</Link>
                 </a>
               </li>
             </ul>
