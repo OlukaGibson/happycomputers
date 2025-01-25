@@ -5,6 +5,7 @@ import Computers from './components/pages/Computers';
 import Services from './components/pages/Services';
 import Accessories from './components/pages/Accessories';
 import Explore from './components/pages/Explore';
+import Computerdetails from './components/Computerdetails';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/computers/:id" element={<Computerdetails />} />
       </Routes>
     </Router>
   );

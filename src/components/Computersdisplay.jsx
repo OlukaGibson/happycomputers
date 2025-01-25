@@ -3,16 +3,15 @@ import Masonry from "react-masonry-css";
 import Sidebar from "./Sidebar";
 import Break from "./Break";
 import { COMPUTERDETAILS } from "../constants";
+import { useNavigate } from "react-router-dom";
 
-// Styled components using inline styles
 const tileBorderStyle = {
-  border: '1px solid rgba(255, 255, 255, 0.8)', // White border with opacity
-  padding: '5px', // Space between border and content
-  borderRadius: '15px', // Rounded corners
-  overflow: 'hidden', // Prevent content overflow
+  border: '1px solid rgba(255, 255, 255, 0.8)',
+  padding: '5px',
+  borderRadius: '15px',
+  overflow: 'hidden',
 };
 
-// Main component
 const Computersdisplay = () => {
   const [filters, setFilters] = useState({
     brand: [],
@@ -58,8 +57,9 @@ const Computersdisplay = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const navigate = useNavigate();
+
   const handleFilterChange = (category, selectedOptions) => {
-    console.log(`Filter Change - Category: ${category}, Options:`, selectedOptions);
     setFilters((prevFilters) => ({
       ...prevFilters,
       [category]: selectedOptions,
@@ -89,6 +89,10 @@ const Computersdisplay = () => {
     500: 1,
   };
 
+  const handleTileClick = (computer) => {
+    navigate(`/computers/${computer.id}`, { state: { computer } });
+  };
+
   return (
     <div className="relative bg-cover bg-center bg-no-repeat mt-20">
       <Break />
@@ -111,21 +115,20 @@ const Computersdisplay = () => {
                   style={masonryGridStyle}
                 >
                   {filteredComputers.length > 0 ? (
-                    filteredComputers.map((category) => (
-                      <div key={category.id} className="mb-4" style={tileBorderStyle}>
-                        <div className="bg-white bg-opacity-90 rounded-xl shadow-lg overflow-hidden">
-                          {/* Use aspect ratio to make the tiles consistent in height */}
+                    filteredComputers.map((computer) => (
+                      <div key={computer.id} className="mb-4" style={tileBorderStyle} onClick={() => handleTileClick(computer)}>
+                        <div className="bg-white bg-opacity-90 rounded-xl shadow-lg overflow-hidden cursor-pointer">
                           <div style={{ aspectRatio: '4 / 3' }}>
                             <img
                               className="w-full h-full object-cover"
-                              src={category.image}
-                              alt={category.deviceName}
+                              src={computer.image}
+                              alt={computer.deviceName}
                             />
                           </div>
                           <div className="p-4">
-                            <h2 className="text-base sm:text-lg md:text-xl font-bold">{category.deviceName}</h2>
+                            <h2 className="text-base sm:text-lg md:text-xl font-bold">{computer.deviceName}</h2>
                             <p className="mt-2 text-gray-600 ">
-                              {category.price}
+                              {computer.price}
                             </p>
                           </div>
                         </div>
